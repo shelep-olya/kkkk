@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Анімація H2O</title>
+  <style>
+    body {
+      background: url('https://i.imgur.com/JhElFJr.jpg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    /* Сховуємо checkbox */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    /* Стиль кнопки */
+    label {
+      padding: 10px 20px;
+      background-color: #00cfff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .drop {
+      width: 100px;
+      height: 100px;
+      background: #00cfff;
+      border-radius: 0%;
+      position: relative;
+      bottom: 0;
+      visibility: hidden; /* Приховуємо елемент спочатку */
+    }
+
+    /* Анімація при натисканні на checkbox */
+    input[type="checkbox"]:checked + label + .drop {
+      animation: waterDrop 5s ease-in-out 0s infinite alternate;
+      visibility: visible; /* Показуємо елемент при анімації */
+    }
+
+    @keyframes waterDrop {
+      0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        border-radius: 0%;
+        bottom: 0;
+      }
+
+      5% {
+        border-radius: 0%;
+        transform: scale(1) rotate(0deg);
+      }
+
+      10% {
+        border-radius: 10% 90% 10% 90%;
+        transform: translate(0, 0) scale(1) rotate(45deg);
+      }
+
+      15% {
+        border-radius: 50% 50% 50% 0%;
+        transform: translate(0, 0) scale(2, 0.5) rotate(135deg);
+        bottom: -200px;
+      }
+
+      24% {
+        transform: translate(0, 0) scale(2, 0.5) rotate(135deg);
+        bottom: -200px;
+      }
+
+      26% {
+        transform: translate(-20px, 0) scale(2, 0.5) rotate(135deg);
+        bottom: -200px;
+      }
+
+      28% {
+        transform: translate(20px, 0) scale(2, 0.5) rotate(135deg);
+        bottom: -200px;
+      }
+
+      30% {
+        transform: translate(-20px, 0) scale(2, 0.5) rotate(135deg);
+        bottom: -200px;
+      }
+
+      32% {
+        transform: translate(20px, 0) scale(2, 0.5) rotate(135deg);
+        bottom: -200px;
+      }
+
+      33% {
+        transform: translate(0, 0) scale(2, 0.5) rotate(135deg);
+        bottom: -200px;
+      }
+
+      36% {
+        transform: scale(1) rotate(135deg);
+        bottom: 200px;
+      }
+
+      50% {
+        transform: scale(1) rotate(315deg);
+        bottom: 200px;
+        border-radius: 50% 50% 50% 0%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="toggleAnimation" />
+  <label for="toggleAnimation">Drop Water</label>
+  
+  <div class="drop"></div>
+</body>
+</html>
